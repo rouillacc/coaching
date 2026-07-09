@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilan Initial Coaching</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1A365D; 
+            --accent-cyan: #06B6D4; 
+            --accent-orange: #F97316; 
+            --bg-color: #f0f4f8;
+            --text-color: #334155;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px 10px;
+            margin: 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(26, 54, 93, 0.1);
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-icon {
+            font-size: 3em;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            margin: 0 0 5px 0;
+            font-weight: 800;
+            font-size: 2.2em;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        fieldset.card {
+            border: none;
+            background: #ffffff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        fieldset.warning-card { border-left-color: #ef4444; }
+        fieldset.highlight-card { border-left-color: var(--accent-cyan); }
+
+        legend {
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-row { display: flex; gap: 20px; }
+        .mt-15 { margin-top: 15px; }
+        .half { flex: 1; }
+        .third { flex: 1; }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: var(--primary-blue);
+        }
+
+        label i { color: var(--accent-cyan); }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1em;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        textarea { resize: vertical; min-height: 80px; }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            background-color: white;
+            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+        }
+
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .custom-checkbox input { display: none; }
+
+        .custom-checkbox .pill {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .custom-checkbox input:checked + .pill {
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            color: white;
+            box-shadow: 0 4px 10px rgba(6, 182, 212, 0.3);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 1.1em;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .form-row { flex-direction: column; gap: 0; }
+            .form-container { padding: 25px 15px; }
+            h1 { font-size: 1.8em; }
+            .checkbox-container { flex-direction: column; }
+            .custom-checkbox .pill { width: 100%; text-align: center; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header-section">
+            <i class="fa-solid fa-stopwatch header-icon"></i>
+            <h1>BILAN INITIAL</h1>
+            <p class="subtitle">Prêt à commencer ? Paramétrons votre programme.</p>
+        </div>
+        
+        <!-- Formulaire avec intégration Formspree -->
+        <form action="https://formspree.io/f/mrewnzvp" method="POST">
+            
+            <!-- Champ caché pour forcer une réponse en français de Formspree après l'envoi -->
+            <input type="hidden" name="_language" value="fr">
+            
+            <fieldset class="card">
+                <legend><i class="fa-solid fa-id-card"></i> Identité & Contact</legend>
+                <div class="form-group">
+                    <label for="nom"><i class="fa-solid fa-user"></i> Nom & Prénom *</label>
+                    <input type="text" id="nom" name="Nom_et_Prenom" placeholder="Ex: Jean Dupont" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="email"><i class="fa-solid fa-envelope"></i> Email *</label>
+                        <input type="email" id="email" name="Email" placeholder="jean@email.com" required>
+                    </div>
+                    <div class="form-group half">
+                        <label for="telephone"><i class="fa-solid fa-phone"></i> Téléphone *</label>
+                        <input type="tel" id="telephone" name="Telephone" placeholder="06 12 34 56 78" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="metier"><i class="fa-solid fa-briefcase"></i> Profession / Métier</label>
+                    <input type="text" id="metier" name="Profession" placeholder="Pour évaluer votre activité journalière">
+                </div>
+            </fieldset>
+
+            <fieldset class="card">
+                <legend><i class="fa-solid fa-location-dot"></i> Facturation</legend>
+                <div class="form-group">
+                    <label for="adresse">Numéro et voie *</label>
+                    <input type="text" id="adresse" name="Adresse" placeholder="10 rue des Sports" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="cp">Code Postal *</label>
+                        <input type="text" id="cp" name="Code_Postal" placeholder="75000" required>
+                    </div>
+                    <div class="form-group half">
+                        <label for="ville">Ville *</label>
+                        <input type="text" id="ville" name="Ville" placeholder="Paris" required>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="card">
+                <legend><i class="fa-solid fa-child-reaching"></i> Profil Physique</legend>
+                <div class="form-row">
+                    <div class="form-group third">
+                        <label for="age"><i class="fa-solid fa-calendar-days"></i> Âge *</label>
+                        <input type="number" id="age" name="Age" min="16" max="99" placeholder="Ans" required>
+                    </div>
+                    <div class="form-group third">
+                        <label for="sexe"><i class="fa-solid fa-venus-mars"></i> Sexe *</label>
+                        <select id="sexe" name="Sexe" required>
+                            <option value="">Choisir...</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="poids"><i class="fa-solid fa-weight-scale"></i> Poids *</label>
+                        <select id="poids" name="Poids" required></select>
+                    </div>
+                    <div class="form-group half">
+                        <label for="taille"><i class="fa-solid fa-ruler-vertical"></i> Taille *</label>
+                        <select id="taille" name="Taille" required></select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="card warning-card">
+                <legend><i class="fa-solid fa-heart-pulse"></i> Bilan Santé</legend>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-kit-medical"></i> Antécédents / Douleurs (12 derniers mois) *</label>
+                    <textarea id="douleurs" name="Antecedents_Douleurs" placeholder="Entorse, tendinite, etc. Sinon écrivez 'Rien'" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-pills"></i> Suivez-vous un traitement médical ? *</label>
+                    <textarea id="traitement" name="Traitement_Medical" placeholder="Précisez ou écrivez 'Non'" required></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="card highlight-card">
+                <legend><i class="fa-solid fa-trophy"></i> Objectifs & Engagement</legend>
+                <div class="form-group">
+                    <label for="niveau"><i class="fa-solid fa-layer-group"></i> Niveau actuel *</label>
+                    <select id="niveau" name="Niveau_Actuel" required>
+                        <option value="">Comment évaluez-vous votre condition ?</option>
+                        <option value="Débutant">Débutant (Reprise)</option>
+                        <option value="Intermédiaire">Intermédiaire (Régulier)</option>
+                        <option value="Confirmé">Confirmé (Avancé)</option>
+                        <option value="Expert">Expert (Compétiteur)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fa-solid fa-bullseye"></i> Objectif principal (Plusieurs choix possibles) *</label>
+                    <div class="checkbox-container">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="Objectifs" value="Perte de poids">
+                            <span class="pill">🔥 Perte de poids</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="Objectifs" value="Prise de masse">
+                            <span class="pill">💪 Prise de masse</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="Objectifs" value="Préparation compétition">
+                            <span class="pill">🏅 Compétition</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="Objectifs" value="Remise en forme">
+                            <span class="pill">🔋 Remise en forme</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row mt-15">
+                    <div class="form-group half">
+                        <label for="suivi_nutrition"><i class="fa-solid fa-apple-whole"></i> Suivi nutritionnel ? *</label>
+                        <select id="suivi_nutrition" name="Suivi_Nutrition" required>
+                            <option value="">Choisir...</option>
+                            <option value="Oui">Oui, j'en ai besoin</option>
+                            <option value="Non">Non, merci</option>
+                        </select>
+                    </div>
+                    <div class="form-group half">
+                        <label for="seances"><i class="fa-solid fa-bolt"></i> Séances par semaine *</label>
+                        <select id="seances" name="Seances_par_semaine" required>
+                            <option value="">Combien de fois ?</option>
+                            <option value="1">1 séance</option>
+                            <option value="2">2 séances</option>
+                            <option value="3">3 séances</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <button type="submit" id="submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> ENVOYER MON BILAN
+            </button>
+        </form>
+    </div>
+
+    <!-- Script JS pour générer les options de poids et taille -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const selectPoids = document.getElementById('poids');
+            selectPoids.innerHTML = '<option value="">Choisir...</option>';
+            for(let i = 40; i <= 120; i++) {
+                selectPoids.innerHTML += `<option value="${i} kg">${i} kg</option>`;
+            }
+
+            const selectTaille = document.getElementById('taille');
+            selectTaille.innerHTML = '<option value="">Choisir...</option>';
+            for(let i = 140; i <= 210; i++) {
+                selectTaille.innerHTML += `<option value="${i} cm">${i} cm</option>`;
+            }
+        });
+    </script>
+</body>
+</html>
